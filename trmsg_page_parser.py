@@ -3,8 +3,7 @@ from bs4 import BeautifulSoup
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
 base_Url = 'https://www.talesrunner.com.hk'
-timer_interval = 600
-webhook_links = ['']
+webhook_links = ['https://discord.com/api/webhooks/1024757248708321371/9lpv28mt6xJxl4xkYGN6TYAOBf5ggJhW0d0GY7I2ijUQwJTXiOjKASMNlCIh0b4_6arA']
 
 #create requirements.txt
 #pipreqs --force --encoding UTF-8
@@ -179,7 +178,6 @@ def get_trmsg_news():
         f.truncate(0)
         f.writelines(writeTitles)
     f.close()
-    # threading.Timer(timer_interval, get_trmsg_news).start()
 
 
 if __name__ == '__main__':
