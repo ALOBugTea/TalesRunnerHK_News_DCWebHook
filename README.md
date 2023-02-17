@@ -1,6 +1,11 @@
 # TalesRunnerHK_News_DCWebHook
 TalesRunnerHK_News_DCWebHook is used for catch [website](www.talesrunner.com.hk)'s game announcements, and post the html data with discord webhook on discord
 >website link is www.talesrunner.com.hk
+
+## README.md
+- [English](https://github.com/aLotOfBugFixedInATeaTime/TalesRunnerHK_News_DCWebHook/blob/main/README.md)
+- [繁體中文](https://github.com/aLotOfBugFixedInATeaTime/TalesRunnerHK_News_DCWebHook/blob/main/README_zh.md)
+
 # Getting Started
 ## Requirements
 - Python 3.11.0 (https://www.python.org/)
