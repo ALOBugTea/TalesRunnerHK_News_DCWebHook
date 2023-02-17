@@ -123,7 +123,7 @@ def get_trmsg_news():
         find_news = False
         for line in readTitles:
             if line in current_title:
-                #find_news = True #暫時移除
+                find_news = True
                 break
 
         if find_news == False:
