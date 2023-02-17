@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
 base_Url = 'https://www.talesrunner.com.hk'
-current_title = None
 timer_interval = 600
 webhook_links = ['']
 
@@ -30,8 +29,6 @@ def getpatchNews_html():
     return csoup
 
 def get_trmsg_news():
-    global current_title
-    global timer_interval
     
     # File Input
     f = open('trmsg_titles.txt','r+', encoding="utf-8")
