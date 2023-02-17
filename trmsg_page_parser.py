@@ -144,9 +144,6 @@ def get_trmsg_news():
                 webhook = DiscordWebhook(url=link)
                 webhook.add_embed(new_embed)
                 webhook.execute()
-                #print("已發布：" + current_title)
-            # print(embed.title)
-            # print(embed.description)
             print("已更新：" + current_title)
             isUpdated = True
         else:
