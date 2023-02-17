@@ -1,6 +1,10 @@
 # TalesRunnerHK_News_DCWebHook
 TalesRunnerHK_News_DCWebHook 用來抓 [官網](www.talesrunner.com.hk)的遊戲公告, 整理資料之後丟到discord的webhook上面
 >官方的鏈接是 www.talesrunner.com.hk
+
+## README.md
+- [English](https://github.com/aLotOfBugFixedInATeaTime/TalesRunnerHK_News_DCWebHook/blob/main/README.md)
+- [繁體中文](https://github.com/aLotOfBugFixedInATeaTime/TalesRunnerHK_News_DCWebHook/blob/main/README_zh.md)
 # 開始使用
 ## 環境需求
 - Python 3.11.0 (https://www.python.org/)
