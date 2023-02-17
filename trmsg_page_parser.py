@@ -17,6 +17,15 @@ def remove_new_line_symbol(lines):
         _str += rl
     return _str
 
+def remove_new_line_symbol2(lines):
+    removedLines = []
+    for line in lines:
+        removedLines.append(line.rstrip('\r\n\t'))
+    _str = ''
+    for rl in removedLines:
+        _str += rl
+    return _str
+
 def getNews_html():
     r = requests.get('https://www.talesrunner.com.hk/notice/notice.php?type=system')
     csoup = BeautifulSoup(r.text, 'html.parser')
@@ -44,9 +53,7 @@ def get_trmsg_news():
     patchSoup = getpatchNews_html()
 
     boardData = soup.find(id="allNoticeContainer")
-    #print(boardData)
     boardItems = boardData.find_all("tr")
-    #print(boardItems)
     isUpdated = False
     for div in reversed(boardItems):
         #link type
@@ -86,7 +93,6 @@ def get_trmsg_news():
                     afterTitleC = remove_new_line_symbol(titleC.text)
                     if afterboardTitle in afterTitleC:
                         searchOtherContent = True
-                        #print(str(board_title) + ' ' + str(True))
                         break
                 if searchOtherContent:
                     tempContent = line.find_parent('tr').find_parent('tr').find_next_siblings('tr')
@@ -98,19 +104,6 @@ def get_trmsg_news():
                         Content += addC.text
                     break
             board_content = Content
-        #original data
-        #print(dtObjects)
-        #print(div)
-        #print(event_type)
-        # test data
-        #print("link: " + title['href'])
-        #print("name: " + board_title)
-        #print("date: " + board_date)
-        #print("------------")
-        #print("content: ")
-        #print(board_content)
-        #print("------------")
-        #break
         # tag color
         tag_color = 5028631
         if event_type == '活動消息':
@@ -121,28 +114,20 @@ def get_trmsg_news():
         current_title = board_title
         find_news = False
         for line in readTitles:
-            if line in current_title:
-                find_news = True
-                break
-
+            temp_title = remove_new_line_symbol2(current_title)
+            temp_line = remove_new_line_symbol2(line)
+            if temp_title in temp_line:
+                if len(temp_title) == len(temp_line):
+                    find_news = True
+                    break
         if find_news == False:
-            writeTitles.insert(0, current_title + '\n')
+            temp_title = remove_new_line_symbol2(current_title)
+            writeTitles.insert(0, temp_title + '\n')
             current_link = title['href']
-            #if "news.html" in current_link:
-            #if event_type == '最新消息':
-            #    current_link = 'https://www.talesrunner.com.hk/notice/notice.php?type=system'
-            #elif event_type == '更新情報':
-            #    current_link = 'https://www.talesrunner.com.hk/notice/notice.php?type=patch'
-            r = requests.get(current_link)
-            #r = requests.get(base_Url + current_link)
-            soup = BeautifulSoup(r.text, 'html.parser')
 
             content = title['onmouseover']
             content = content.replace('changeBanner("', '')
             content = content.replace('");', '')
-
-            #news_link = urllib.parse.urljoin(base_Url, current_link)
-            #news_link = urllib.parse(current_link)
 
             embed = DiscordEmbed()
             embed.set_author(name='跑online官網公告轉送', url=current_link,
