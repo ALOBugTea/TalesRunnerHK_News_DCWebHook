@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
 base_Url = 'https://www.talesrunner.com.hk'
-webhook_links = ['https://discord.com/api/webhooks/1024757248708321371/9lpv28mt6xJxl4xkYGN6TYAOBf5ggJhW0d0GY7I2ijUQwJTXiOjKASMNlCIh0b4_6arA']
+webhook_links = ['']
 
 #create requirements.txt
 #pipreqs --force --encoding UTF-8
